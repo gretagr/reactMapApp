@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+overflow: hidden;
+}
+.App {
+  display: flex;
+  justify-content: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+#root {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.map-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+/* =============== sidebar styles =============== */
+.header {
+  position: fixed;
+  z-index: 999;
+  height: 80px;
+  width: 100vw;
+  text-align: center;
+  background: #F1F3F4;
+}
+h1 {
+  line-height: 80px;
+}
+ol {
+  list-style-type: none;
+  text-align: left;
+  width: 95%;
+  margin-top: 20px;
+}
+li {
+  padding: 25px 20px;
+  border-bottom: 1px solid #ddd;
+}
+li:hover {
+  background-color: #eee;
+}
+input {
+  width: 95%;
+  border: 1px solid #ddd;
+  padding: 10px 20px;
+}
+.sidebar {
+  width: 25vw;
+  height: 100vh;
+  /* display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;*/
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -25vw;
+  padding: 19px 35px 0 35px;
+  transition: all 0.3s easeout;
+}
+
+#sidebartoggle {
+  display: none;
+}
+/* + .content .sidebar */
+#sidebartoggle:checked {
+  left: 0px;
+}
+
+#sidebartoggle:checked {
+  margin-right: 205px;
+  transition: all 0.15s ease-out 0s;
+}
+
+.icon {
+  position: fixed;
+  top: 40px;
+  right: 0;
+  bottom: 0  ;
+  left: 80px;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  z-index: 1000;
+  
+}
+
+.hamburger {
+  width: 30px;
+  height: 3px;
+  background: #ff5c40;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.15s ease-out 0s;
+}
+
+.hamburger:before, .hamburger:after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background: #ff5c40;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.15s ease-out 0s;
+}
+
+.hamburger:before {
+  top: -8px;
+}
+
+.hamburger:after {
+  top: 8px;
+}
+
+.icon.active  {
+  position: fixed ;
+  top: 40px;
+  right: 0;
+  bottom: 0;
+  left: 280px;
+ }
+
+.icon.active .hamburger {
+  background: rgba(0, 0, 0, 0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
+  transition: all 0.15s ease-out 0s;
+ }
+.icon.active .hamburger:before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.icon.active .hamburger:after {
+  top: 0;
+  transform: rotate(135deg);
+}
