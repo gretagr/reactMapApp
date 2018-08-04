@@ -39,18 +39,27 @@ overflow: hidden;
 .map-container {
   width: 100vw;
   height: 100vh;
-  display: flex;
+}
+.map-container.active {
+  width: calc(100vw - 350px);
+  float: right;
+}
+/* =============== sidebar styles =============== */
+.map-container.active .header {
+  width: calc(100% - 350px);
 }
 
-/* =============== sidebar styles =============== */
 .header {
   position: fixed;
   z-index: 999;
   height: 80px;
-  width: 100vw;
-  text-align: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #F1F3F4;
 }
+
 h1 {
   line-height: 80px;
 }
@@ -72,8 +81,9 @@ input {
   border: 1px solid #ddd;
   padding: 10px 20px;
 }
+
 .sidebar {
-  width: 25vw;
+  width: 350px;
   height: 100vh;
   /* display: flex;
   justify-content: flex-start;
@@ -81,40 +91,36 @@ input {
   align-items: center;*/
   position: fixed;
   top: 0;
-  bottom: 0;
-  left: -25vw;
+  left: -350px;
   padding: 19px 35px 0 35px;
   transition: all 0.3s easeout;
+  background: #ddd;
+  z-index: 999;
+  padding-top: 100px;
+  overflow: scroll;
 }
 
 #sidebartoggle {
   display: none;
 }
-/* + .content .sidebar */
-#sidebartoggle:checked {
-  left: 0px;
-}
 
-#sidebartoggle:checked {
-  margin-right: 205px;
-  transition: all 0.15s ease-out 0s;
+.sidebar.active {
+  left: 0;
+  transition: all 0.3s ease-out 0s;
 }
 
 .icon {
   position: fixed;
   top: 40px;
-  right: 0;
-  bottom: 0  ;
-  left: 80px;
+  left: 40px;
   transform: translate(-50%, -50%);
   width: 50px;
   height: 50px;
   cursor: pointer;
   z-index: 1000;
-  
 }
 
-.hamburger {
+.icon .hamburger {
   width: 30px;
   height: 3px;
   background: #ff5c40;
@@ -123,39 +129,37 @@ input {
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  transition: all 0.15s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
 }
 
-.hamburger:before, .hamburger:after {
+.icon .hamburger:before, .hamburger:after {
   content: "";
   position: absolute;
   width: 30px;
   height: 3px;
   background: #ff5c40;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  transition: all 0.15s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
 }
 
-.hamburger:before {
+.icon .hamburger:before {
   top: -8px;
 }
 
-.hamburger:after {
+.icon .hamburger:after {
   top: 8px;
 }
 
 .icon.active  {
-  position: fixed ;
-  top: 40px;
-  right: 0;
-  bottom: 0;
-  left: 280px;
+  /* position: fixed ;
+  top: 24px;
+  left: 377px; */
  }
 
 .icon.active .hamburger {
   background: rgba(0, 0, 0, 0);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
-  transition: all 0.15s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
  }
 .icon.active .hamburger:before {
   top: 0;

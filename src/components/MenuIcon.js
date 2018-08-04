@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
 
-export default class NavBar extends Component {
-  toggleIcon = () => {
-
-  }
+export default class MenuIcon extends Component {
 
   render() {
 
     return (
-      <label className="icon" htmlFor="sidebartoggle" >
-      <input type="checkbox" id="sidebartoggle" name="" value="" onClick={this.toggleIcon}/>
+      <label className={this.props.openNav ? 'icon active' : 'icon'} htmlFor="sidebartoggle" >
+      <input type="checkbox" id="sidebartoggle" name="" value="" onChange={this.props.handleToggle}/>
         <div className="hamburger"></div>
       </label>
     )
