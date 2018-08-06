@@ -14,8 +14,6 @@ export default class NavBar extends Component {
     } else {
       this.setState({ openNav: false })
     }
-
-    console.log(this.state.openNav)
   }
   render() {
 
@@ -26,10 +24,14 @@ export default class NavBar extends Component {
         handleToggle={this.toggleIcon}
       />
       <nav className={this.state.openNav ? 'sidebar active' : 'sidebar'}>
-        <Filter />
+        <Filter onSearch={this.props.onSearch} query={this.props.query}/>
         <ol>
           {this.props.markers.map(name => {
-            return <li key={name.id}>{name.name}</li>
+            return (
+              <li key={name.id} onClick={() => {this.props.onToggle(name.id, name.lat, name.lng)}}>
+                {name.name}
+              </li>
+            )
           })}
         </ol>
       </nav>
