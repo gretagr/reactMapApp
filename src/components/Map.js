@@ -34,9 +34,10 @@ const MyMap = compose(
       {props.isOpen && props.openItemId === venue.id &&
       <InfoWindow className="info" onCloseClick={() => props.onToggle(venue.id, venue.lat, venue.lng)}>
         <div>
-          <h1>{venue.name}</h1>
-          <p>{venue.address}</p>
-          <img className="venue-image" alt="alt text" src={venue.image}/>
+          <header className='infowindow-head'>
+            <h1>{venue.name}</h1>
+          </header>
+          <p>{venue.address[0]}</p>
       </div>
       </InfoWindow>}
     </Marker>
@@ -51,7 +52,7 @@ export default class Map extends Component {
 
   render() {
     return (
-      <section className={this.props.openNav ? 'map-container active' : 'map-container'}>
+      <section aria-label='Vilnius map' role='application' className={this.props.openNav ? 'map-container active' : 'map-container'}>
         <MyMap
           onMapLoad={this.handleMapLoad}
           markers={this.props.markers}

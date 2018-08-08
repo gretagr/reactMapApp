@@ -3,50 +3,62 @@ import './App.css';
 import Map from './components/Map'
 import NavBar from './components/NavBar'
 import escapeRegExp from 'escape-string-regexp'
-import sortBy from 'sort-by'
+const details = require('./data/additionalData.json')
 
 
 class App extends Component {
   state = {
-    allMarkers: [],
-    markers: [],
+    allMarkers: details,
+    markers: details,
+    // controlling infowindows and markers state
     isOpen: false,
     openItem: {},
     openItemId: '',
     isMarkerShown: true,
+    // initial map settings
     zoom: 15,
-    center: { lat: 54.6807327, lng: 25.2700201 },
-    mapStyles: require('./data/mapStyle.json'),
+    center: { lat: 54.683189, lng: 25.273754 },
+    mapStyles: require('./data/mapStyle.json'), //custom map styles
+    // search
     query: '',
-    prevQuery: ''
   }
 
   componentDidMount(){
-    this.getLocations();
+    this.getLocations()
   }
 
+/* GETTING LOCATIONS form foursquare API ====================================================================================
+/* for sake of better quality images and other info detail I desided to use only locations from my created list in foursquere,
+/* And according to that list hard code additional info in aditionalData.json
+/* ======================================================================================================================== */
+
   getLocations () {
-    fetch('https://api.foursquare.com/v2/venues/search?ll=54.6784,25.2865&radius=1000&categoryId=4bf58dd8d48988d181941735&client_id=TP4GRX0W4NPXOJDYDG10N2RZD5G4QMKCRQ1L45LSBXDNJOP1&client_secret=PKLYPTWTK4YZXEG0JNN0A3KGDSKU3E0PQCWTN1U2GIHCZLZS&v=20180804')
+    const id = 'TP4GRX0W4NPXOJDYDG10N2RZD5G4QMKCRQ1L45LSBXDNJOP1'
+    const secret = 'PKLYPTWTK4YZXEG0JNN0A3KGDSKU3E0PQCWTN1U2GIHCZLZS'
+    const listId = '5b69c23f270ee700399e44e1'
+    const version = 'v=20180804'
+
+    fetch(`https://api.foursquare.com/v2/lists/${listId}?&client_id=${id}&client_secret=${secret}&${version}`)
     .then( response => response.json())
-    .then(data => data.response.venues.map(place => (
+    .then(data => data.response.list.listItems.items.map(item => (
       {
-        id: place.id,
-        name: place.name,
-        lat: place.location.lat,
-        lng: place.location.lng,
-        address: place.location.formattedAddress,
-        image: 'https://s2.15min.lt/images/photos/2015/10/22/original/15ig20151022ozoparkas9615_result-5628b1fce91a2.jpg'
+        id: item.venue.id,
+        name: item.venue.name,
+        lat: item.venue.location.lat,
+        lng: item.venue.location.lng,
+        address: item.venue.location.formattedAddress
       }
     ))).then(markers => {
       this.setState({ allMarkers: markers, markers: markers })
-    }).catch(err => console.log(err))
+    }).catch(error => console.log(error))
 
 }
+
+// filter function
 
 onSearch = (query) => {
 let markers
 const match = new RegExp(escapeRegExp(query), 'i')
-
   if (query) {
     markers = this.state.allMarkers.filter(marker => match.test(marker.name))
   }
@@ -54,43 +66,53 @@ const match = new RegExp(escapeRegExp(query), 'i')
     markers = this.state.allMarkers
   }
   this.setState({ markers, query})
-
 }
 
+// open-close infoWindows, set marker animation
+
 onToggle = (openItemId, lat, lng) => {
-  if (!this.state.isOpen && this.state.openItemId === '') {
+  if (!this.state.isOpen) { //checks if no other windows are open
     this.setState ({
       openItemId: openItemId,
       isOpen: true,
-      center: {lat, lng}
-
+      center: {lat, lng},
+      zoom: 18
     })
+//checks if another window aren't open before opening new one, and if is open - resets value of open item id to current window
   } else if (this.state.isOpen && this.state.openItemId !== openItemId){
       this.setState ({
         openItemId: openItemId,
-        center: {lat, lng}
+        center: {lat, lng},
+        zoom: 15
       })
+// close window
   } else {
     this.setState ({
       openItemId: '',
       isOpen: false,
-      center: {lat: 54.6807327, lng: 25.2700201}
+      center: {lat: 54.683189, lng: 25.273754},
+      zoom: 15
     })
   }
 }
 
+// sets map behavior on on click
 onMapClick = () => {
   this.setState({
     openItemId: '',
     isOpen: false,
+    center: {lat: 54.683189, lng: 25.273754},
+    zoom: 15
   })
 }
+
   render() {
 console.log(this.state.markers)
     return (
+
       <React.Fragment>
-        <header>
-          <h1>museums of Vilnius old city</h1>
+        <header className='main-header'>
+          <h1>museums of Vilnius old town</h1>
         </header>
         <NavBar
           markers={this.state.markers}

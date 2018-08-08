@@ -6,7 +6,7 @@ export default class MenuIcon extends Component {
 
     return (
       <label className={this.props.openNav ? 'icon active' : 'icon'} htmlFor="sidebartoggle" >
-      <input type="checkbox" id="sidebartoggle" name="" value="" onChange={this.props.handleToggle}/>
+      <button id="sidebartoggle" aria-label="Open sidebar navigation" value="Open sidebar navigation" onClick={this.props.handleToggle}></button>
         <div className="hamburger"></div>
       </label>
     )

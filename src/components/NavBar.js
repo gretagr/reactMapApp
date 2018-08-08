@@ -23,18 +23,19 @@ export default class NavBar extends Component {
         openNav={this.state.openNav}
         handleToggle={this.toggleIcon}
       />
-      <nav className={this.state.openNav ? 'sidebar active' : 'sidebar'}>
-        <Filter onSearch={this.props.onSearch} query={this.props.query}/>
-        <ol>
+      <aside role='navigation' className={this.state.openNav ? 'sidebar active' : 'sidebar'}>
+        <div className='header-bc'></div>
+        <Filter tabIndex='0' onSearch={this.props.onSearch} query={this.props.query}/>
+        <ol className='list-holder'>
           {this.props.markers.map(name => {
             return (
-              <li key={name.id} onClick={() => {this.props.onToggle(name.id, name.lat, name.lng)}}>
+              <li tabIndex='0'  key={name.id} onClick={() => {this.props.onToggle(name.id, name.lat, name.lng)}}>
                 {name.name}
               </li>
             )
           })}
         </ol>
-      </nav>
+      </aside>
     </React.Fragment>
     )
   }

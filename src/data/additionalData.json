@@ -1,0 +1,178 @@
+[{
+		"id": "59a58f9f67e5f24c735baea9",
+		"name": "Telia Nonmuseum",
+		"image": "telia-nonmuseum.jpg",
+		"shortDesc": "Sit back and enjoy lasers and projections reviving the most iconic moments of Vilnius history.",
+		"link": "http://nemuziejus.lt/en/",
+		"price": "5-8 Eur"
+	},
+	{
+		"id": "57b1df0ccd10284b6499b225",
+		"name": "Lithuanian Art Museum",
+		"image": "art-museum.jpg",
+		"shortDesc": "The Lithuanian Art Museum is an art museum established in Vilnius in 1933 as the Vilnius City Museum. It houses Lithuania's largest art collection.",
+		"link": "https://www.ldm.lt/en/",
+		"price": "Adults – 2 EUR"
+	},
+	{
+		"id": "57408850498eb8c19e71f74e",
+		"name": "Culinary Heritage Museum of Lithuania",
+		"image": "culinary-museum-1.jpg",
+		"shortDesc": "Culinary Heritage Museum of Lithuania invites to see exhibitions of art, furniture, valuable plates, tureens, sauce boats, silver-plated dishes and culinary books, which count even 300 years.",
+		"link": "http://www.culinarymuseumvilnius.lt/",
+		"price": "1,5–3 Eur"
+	},
+	{
+		"id": "4da5884290a08b5151a9edee",
+		"name": "House of Signatories",
+		"image": "Signatoires-3.jpg",
+		"shortDesc": "The exposition of the Signatories’ House presents the history of the national revival of the beginning of the 20th century and the restoration of modern Lithuania in 1918.",
+		"link": "http://www.vilnius-tourism.lt/en/what-to-see/museums/house-of-signatories/",
+		"price": "Adults 4 Eur, schoolchild, senior 2 Eur"
+	},
+	{
+		"id": "4c277d78a852c928d649e86c",
+		"name": "Gediminas’ Tower of the Upper Castle",
+		"image": "gediminas.jpg",
+		"shortDesc": "The Vilnius Castle Museum was opened in 1960, and in 1968 it became a subdivision of the Lithuanian National Museum.",
+		"link": "http://www.lnm.lt/",
+		"price": "Adults 5 EUR, schoolchild, student, senior 2,5 EUR"
+	},
+	{
+		"id": "4da5619790a08b5151a914b8",
+		"name": "Amber Museum-Gallery",
+		"image": "amber.jpg",
+		"shortDesc": "The Museum was founded in 1988. The exhibits on display at the Amber Museum-Gallery tell visitors about the morphology of amber.",
+		"link": "http://www.ambergallery.lt/",
+		"price": "-"
+	},
+	{
+		"id": "4da5871490a08b5151a9e704",
+		"name": "Radvila Palace",
+		"image": "radvila.jpg",
+		"shortDesc": "The Radvilas Palace as an art gallery was opened in 1990 in the reconstructed western pavilion of the estate of Janusz Radziwiłł of the middle of the 17th century.",
+		"link": "http://www.ldm.lt/rrm",
+		"price": "1-2 Eur"
+	},
+	{
+		"id": "50dda479498e09c6d300d780",
+		"name": "Toy's Museum",
+		"image": "zaislu-muziejus_5.jpg",
+		"shortDesc": "The Toys’ Museum in Vilnius is a very young museum which chose the direction of modern museology and wishes to demonstrate that science and culture may present a very interesting experience which enriches a person’s childhood.",
+		"link": "http://zaislumuziejus.lt/",
+		"price": "4 EUR, schoolchild, student, senior 3 EUR"
+	},
+	{
+		"id": "56e3ef1dcd1091b0bcb2a070",
+		"name": "Centre for Civil Education",
+		"image": "Centre-for-Civil-Education-3.jpg",
+		"shortDesc": "The Centre for Civil Education was opened in the Presidential Palace (Office of the President of the Republic of Lithuania) on 10 March 2016.",
+		"link": "http://pazinkvalstybe.lt/",
+		"price": "Free Entrance"
+	},
+	{
+		"id": "v51659a6be4b026c8f4834c2d",
+		"name": "Plnetarium",
+		"image": "bastion.jpg",
+		"shortDesc": "The Museum acquaints visitors with reflections and changes in Lithuanian culture which are of artistic or historical lasting value.",
+		"link": "http://www.planetarium.lt/",
+		"price": "-"
+	},
+	{
+		"id": "4da5806390a08b5151a9c075",
+		"name": "Bastion of Vilnius City Wall",
+		"image": "planetarium.jpg",
+		"shortDesc": "Educational lectures for schoolchildren and students, séances for guided tours, as well as disputes, social meetings with scientists, gala events of companies and persons are organized here.",
+		"link": "http://www.lnm.lt/",
+		"price": "Adult 4 EUR"
+	},
+	{
+		"id": "4da5861090a08b5151a9e143",
+		"name": "Lithuanian Theatre, Music and Cinema Museum",
+		"image": "IMG_3454.jpg",
+		"shortDesc": "The Museum acquaints visitors with reflections and changes in Lithuanian culture which are of artistic or historical lasting value.",
+		"link": "http://www.ltmkm.lt/",
+		"price": "Adult 2 EUR, schoolchild, student, senior 1,40 EUR"
+	},
+	{
+		"id": "4f697d91771669d5a1de77a5",
+		"name": "Vilnius Cathedral Bell Tower",
+		"image": "varpine13.jpg",
+		"shortDesc": "The Belfry is the element of particular importance of Vilnius Cathedral as well as Lower and Upper Castle, one of the vertical dominants of the Old Town of Vilnius that became the symbol of the city.",
+		"link": "http://www.bpmuziejus.lt/",
+		"price": "Adult 4,50 EUR, schoolchild, student 2,50 EUR"
+	},
+	{
+		"id": "4da5859e90a08b5151a9de92",
+		"name": "Palace of the Grand Dukes of Lithuania",
+		"image": "valdovu-rumai-70544600.jpg",
+		"shortDesc": "The reconstructed Palace of the Grand Dukes of Lithuania, the former political, diplomatic, cultural center of the State, was one of the most famous in Europe in the 15th-17th centures.",
+		"link": "http://www.valdovurumai.lt/",
+		"price": "Adult 6 EUR, schoolchild, student, senior 3 EUR"
+	},
+	{
+		"id": "4d42da677fb054815b3b6f79",
+		"name": "Museum of Applied Arts And Design",
+		"image": "arts.jpg",
+		"shortDesc": "Exhibitions are mounted, educational programmes are presented, concerts are performed at the Museum.",
+		"link": "http://www.ldm.lt/tdm",
+		"price": "Adult 2 EUR"
+	},
+	{
+		"id": "4ce63565baa6a1cd6921206c",
+		"name": "National Museum of Lithuania",
+		"image": "national.jpg",
+		"shortDesc": "The exposition contains archaeological findings dating back to the appearance of the first inhabitants in the territory of Lithuania 11,000 years BC until establishment of the State in the 13th century. ",
+		"link": "http://www.lnm.lt/",
+		"price": "Adult 2 EUR, schoolchild, student, senior 1 EUR"
+	},
+	{
+		"id": "4e3193147d8b9b256bccecd2",
+		"name": "The Money Museum",
+		"image": "money.jpg",
+		"shortDesc": "Expositions abound in interactive educational tools, thematic films and games.",
+		"link": "http://www.pinigumuziejus.lt/",
+		"price": "-"
+	},
+	{
+		"id": "57d42cb4498e8c885361821c",
+		"name": "Vilnius Museum of illusions",
+		"image": "illusions.jpg",
+		"shortDesc": "It’s fascinating. It’s fun. It’s sure to be surprising. Basically that’s all you need to know about this fabulous museum.",
+		"link": "http://www.vilnil.lt/",
+		"price": "10 Eur, free for children under 7 years"
+	},
+	{
+		"id": "4d31a52a5017a093682c419b",
+		"name": "Energy and Technology Museum",
+		"image": "ETM-foto.jpg",
+		"shortDesc": "The interactive exhibitions aim to stimulate interest in science and technologies in an entertaining way and to popularise science in society.",
+		"link": "http://www.etm.lt/",
+		"price": "Adult 3 EUR, schoolchild, student, senior 1,5 EUR, disabled 0,5 EUR, free for children under 6 years old"
+	},
+	{
+		"id": "4c5bdf596147be9a68ae8d09",
+		"name": "Contemporary Art Center",
+		"image": "art-center.jpg",
+		"shortDesc": "The Contemporary Art Centre is the largest art centre in the Baltic States.",
+		"link": "http://www.cac.lt/",
+		"price": "Adult 3 EUR, schoolchild, student 1,5 EUR, admission is free to all on Wednesdays"
+
+	},
+	{
+		"id": "4d9dcc178efaa14370f36db7",
+		"name": "Church Heritage Museum",
+		"image": "church-heritage.jpg",
+		"shortDesc": "Church Heritage Museum is based at St. Michael‘s Church in Vilnius old town.",
+		"link": "http://www.vilnius-tourism.lt/en/what-to-see/museums/church-heritage-museum/",
+		"price": "Adults 4,50 EUR, schoolchild, student and senior 2,50 EUR"
+	},
+	{
+		"id": "4da5893c90a08b5151a9f47b",
+		"name": "Vilnius Gaon Jewish State Museum, Holocaust Museum",
+		"image": "view-to-museum.jpg",
+		"shortDesc": "A green wooden house hosts an exhibition to commemorate the Holocaust in Lithuania.",
+		"link": "http://www.jmuseum.lt/",
+		"price": "Adult 3 EUR, student, senior 1,5 Eur. Combined ticket: Holocaust Exposition and Tolerance Center – 5,00 Eur"
+	}
+]
