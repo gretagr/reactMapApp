@@ -5,7 +5,7 @@ import { GoogleMap, withGoogleMap, withScriptjs, Marker, InfoWindow } from 'reac
 
 const MyMap = compose(
   withProps({
-    googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyBXIBdJCM-1cHLO86U1hfKVvXZ2HmQhhyo&v=3.exp&libraries=geometry,drawing,places",
+    googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyDDKw8KM0hI26kbRZw8v_xXlNazk_x4FAY&v=3.exp&libraries=geometry,drawing,places",
     containerElement: <div style={{ height: `100%`, width: '100%' }} />,
     mapElement: <div style={{ height: `100%` }} />,
     loadingElement: <div style={{ height: `100%` }} />,
@@ -37,7 +37,12 @@ const MyMap = compose(
           <header className='infowindow-head'>
             <h1>{venue.name}</h1>
           </header>
-          <p>{venue.address[0]}</p>
+          <img src={venue.image} alt={venue.name}/>
+          <h2>About museum</h2>
+          <p>{venue.shortDesc}</p>
+          <p><span>Address:</span> {venue.address}</p>
+          <a href={venue.link} target="_blank"><span>Visit: </span>{venue.link}</a>
+          <p><span>Price:</span> {venue.price}</p>
       </div>
       </InfoWindow>}
     </Marker>

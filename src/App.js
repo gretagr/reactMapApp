@@ -8,8 +8,8 @@ const details = require('./data/additionalData.json')
 
 class App extends Component {
   state = {
-    allMarkers: details,
-    markers: details,
+    allMarkers: [],
+    markers: [],
     // controlling infowindows and markers state
     isOpen: false,
     openItem: {},
@@ -37,25 +37,41 @@ class App extends Component {
     const secret = 'PKLYPTWTK4YZXEG0JNN0A3KGDSKU3E0PQCWTN1U2GIHCZLZS'
     const listId = '5b69c23f270ee700399e44e1'
     const version = 'v=20180804'
-
     fetch(`https://api.foursquare.com/v2/lists/${listId}?&client_id=${id}&client_secret=${secret}&${version}`)
     .then( response => response.json())
     .then(data => data.response.list.listItems.items.map(item => (
       {
         id: item.venue.id,
-        name: item.venue.name,
+        //name: item.venue.name,
+        name: this.trimName(item.venue.name),
         lat: item.venue.location.lat,
         lng: item.venue.location.lng,
         address: item.venue.location.formattedAddress
       }
     ))).then(markers => {
-      this.setState({ allMarkers: markers, markers: markers })
+      details.filter(detail => {markers.map(marker => {
+        if(marker.id === detail.id) {
+        marker.image = detail.image
+        marker.shortDesc = detail.shortDesc
+        marker.link = detail.link
+        marker.price = detail.price
+        }
+      })
+    })
+    console.log(markers)
+    this.setState({ allMarkers: markers, markers: markers })
     }).catch(error => console.log(error))
 
 }
 
-// filter function
+// name trimming solution:  https://stackoverflow.com/questions/5631384/remove-everything-after-a-certain-character
+trimName = (name) => {
+let trigger = name.indexOf('(')
+let result = name.substring(0, trigger !== -1 ? trigger : name.length)
+return result
+}
 
+// filter function
 onSearch = (query) => {
 let markers
 const match = new RegExp(escapeRegExp(query), 'i')
@@ -107,7 +123,8 @@ onMapClick = () => {
 }
 
   render() {
-console.log(this.state.markers)
+    console.log('markers', this.state.markers)
+    console.log('details', details)
     return (
 
       <React.Fragment>
