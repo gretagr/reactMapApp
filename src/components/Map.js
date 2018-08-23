@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { compose, withProps } from 'recompose'
-import { GoogleMap, withGoogleMap, withScriptjs, Marker, InfoWindow } from 'react-google-maps'
+import { GoogleMap, withGoogleMap, withScriptjs, Marker, InfoWindow, InfoBox } from 'react-google-maps'
+
 
 
 const MyMap = compose(
@@ -23,6 +24,7 @@ const MyMap = compose(
     }}>
 
   {props.isMarkerShown && props.markers.map( venue => {
+
     return (
     <Marker animation={props.isOpen && props.openItemId === venue.id ? 1 : null}
       key={venue.id}
@@ -33,22 +35,22 @@ const MyMap = compose(
       onClick={() =>  {props.onToggle(venue.id, venue.lat, venue.lng)}}>
       {props.isOpen && props.openItemId === venue.id &&
       <InfoWindow className="info" onCloseClick={() => props.onToggle(venue.id, venue.lat, venue.lng)}>
-        <div>
+        <div className="info-win-container">
           <header className='infowindow-head'>
             <h1>{venue.name}</h1>
+            <img className="info-image" src={venue.image} alt={venue.name}/>
           </header>
-          <img src={venue.image} alt={venue.name}/>
-          <h2>About museum</h2>
-          <p>{venue.shortDesc}</p>
-          <p><span>Address:</span> {venue.address}</p>
-          <a href={venue.link} target="_blank"><span>Visit: </span>{venue.link}</a>
-          <p><span>Price:</span> {venue.price}</p>
+          <p className="text">{venue.shortDesc}</p>
+          <p className="detail"><span>Address:</span> {venue.address[0]}</p>
+          <a className="detail" href={venue.link} target="_blank"><span>Visit: </span>{venue.link}</a>
+          <p className="detail"><span>Price: </span>{venue.price}</p>
       </div>
       </InfoWindow>}
     </Marker>
+      )
+
+    }
   )
-  }
-)
 }
   </GoogleMap>
 )

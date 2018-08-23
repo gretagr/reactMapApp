@@ -92,14 +92,14 @@ onToggle = (openItemId, lat, lng) => {
       openItemId: openItemId,
       isOpen: true,
       center: {lat, lng},
-      zoom: 18
+      //zoom: 18
     })
 //checks if another window aren't open before opening new one, and if is open - resets value of open item id to current window
   } else if (this.state.isOpen && this.state.openItemId !== openItemId){
       this.setState ({
         openItemId: openItemId,
         center: {lat, lng},
-        zoom: 15
+        //zoom: 15
       })
 // close window
   } else {

@@ -11,7 +11,7 @@
 	"name": "House of Signatories",
 	"image": "Signatoires-3.jpg",
 	"shortDesc": "The exposition of the Signatories’ House presents the history of the national revival of the beginning of the 20th century and the restoration of modern Lithuania in 1918.",
-	"link": "http://www.vilnius-tourism.lt/en/what-to-see/museums/house-of-signatories/",
+	"link": "http://www.lnm.lt",
 	"price": "Adults 4 Eur, schoolchild, senior 2 Eur"
 },
 {
@@ -123,7 +123,7 @@
 		"name": "Church Heritage Museum",
 		"image": "church-heritage.jpg",
 		"shortDesc": "Church Heritage Museum is based at St. Michael‘s Church in Vilnius old town.",
-		"link": "http://www.vilnius-tourism.lt/en/what-to-see/museums/church-heritage-museum/",
+		"link": "http://www.bpmuziejus.lt",
 		"price": "Adults 4,50 EUR, schoolchild, student and senior 2,50 EUR"
 	},
 	{
@@ -153,7 +153,7 @@
 	{
 		"id": "4bffe4a337850f47b454973f",
 		"name": "Contemporary Art Center",
-		"image": "art-center.png",
+		"image": "art-center.jpg",
 		"shortDesc": "The Contemporary Art Centre is the largest art centre in the Baltic States.",
 		"link": "http://www.cac.lt/",
 		"price": "Adult 3 EUR, schoolchild, student 1,5 EUR, admission is free to all on Wednesdays"
