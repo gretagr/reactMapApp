@@ -3,6 +3,7 @@
 * [About](#about)
 * [Instructions](#instructions)
 * [Dependencies](#dependencies)
+* [Atributions](#atributions)
 
 ## About
 
@@ -56,5 +57,9 @@
 * [PropTypes](https://www.npmjs.com/package/prop-types)
 * [escape-string-regexp](https://www.npmjs.com/package/escape-string-regexp)
 * [Open Sans, Google fonts](https://fonts.google.com/specimen/Open+Sans)
+
+## Atributions
+
 * Locations Details: [Foursquare](https://foursquare.com/)
-* [Image Sources attributions](https://github.com/gretagr/reactMapApp/blob/master/image-sources.md)
+* Images used: [Image Sources attributions](https://github.com/gretagr/reactMapApp/blob/master/image-sources.md)
+* How to deploy app to gh-pages tutorial: [react-gh-pages](https://github.com/gitname/react-gh-pages)
