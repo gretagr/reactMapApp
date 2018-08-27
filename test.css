@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+body {
+  margin: 0;
+  padding: 0; }
+
+.content {
+    margin: 0;
+    padding: 0;
+    width: 100wh;
+    height: 100vh;
+    position: relative;
+    z-index: 0;
+    background: #ff5c40; }
+
+.content .main {
+      width: 60%;
+      height: 100%;
+      margin: 0 auto;
+      -webkit-transition: all 0.15s ease-out 0s;
+      -moz-transition: all 0.15s ease-out 0s;
+      transition: all 0.15s ease-out 0s; }
+
+
+.sidebar {
+    position: fixed;
+    top: 0px;
+    right: 0;
+    bottom: 0px;
+    left: -250px;
+    width: 170px;
+    padding: 19px 35px 0 35px;
+    background: #333;
+    z-index: 0;
+    -webkit-transition: all 0.15s ease-out 0s;
+    -moz-transition: all 0.15s ease-out 0s;
+    transition: all 0.15s ease-out 0s; }
+  /* body ul {
+    padding: 0;
+    margin: 0; }
+  body a {
+    text-decoration: none; }
+  body li {
+    color: rgba(255, 255, 255, 0.8);
+    list-style-type: none;
+    margin-bottom: 16px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    -webkit-font-smoothing: antialiased; }
+    body li:hover {
+      color: white; } */
+
+#sidebartoggle {
+    display: none; }
+
+
+#sidebartoggle:checked + .content .sidebar {
+      left: 0px; }
+
+#sidebartoggle:checked + .content .main {
+      margin-right: 205px;
+      -webkit-transition: all 0.15s ease-out 0s;
+      -moz-transition: all 0.15s ease-out 0s;
+      transition: all 0.15s ease-out 0s; }
+
+.icon {
+    position: fixed;
+    top: 40px;
+    right: 0;
+    bottom: 0;
+    left: 40px;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    cursor: pointer; }
+    body .icon .hamburger {
+      width: 40px;
+      height: 4px;
+      background: #fff;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      -webkit-transition: all 0.15s ease-out 0s;
+      -moz-transition: all 0.15s ease-out 0s;
+      transition: all 0.15s ease-out 0s; }
+      body .icon .hamburger:before, body .icon .hamburger:after {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 4px;
+        background: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        -webkit-transition: all 0.15s ease-out 0s;
+        -moz-transition: all 0.15s ease-out 0s;
+        transition: all 0.15s ease-out 0s; }
+      body .icon .hamburger:before {
+        top: -12px; }
+      body .icon .hamburger:after {
+        top: 12px; }
+  body .icon.active {
+    position: fixed;
+    top: 40px;
+    right: 0;
+    bottom: 0;
+    left: 280px; }
+  body .icon.active .hamburger {
+    background: rgba(0, 0, 0, 0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
+    -webkit-transition: all 0.15s ease-out 0s;
+    -moz-transition: all 0.15s ease-out 0s;
+    transition: all 0.15s ease-out 0s; }
+    body .icon.active .hamburger:before {
+      top: 0;
+      transform: rotate(45deg); }
+    body .icon.active .hamburger:after {
+      top: 0;
+      transform: rotate(135deg); }
