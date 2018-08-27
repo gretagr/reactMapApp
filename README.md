@@ -11,7 +11,7 @@
 
 * Assignment: To develop a single page map application using React framework. Map should display any selected area of interest.
 
-###App requirements:
+### App requirements:
 
 * All application components render on-screen in a responsive manner.
 * Filter: Includes a text input field or dropdown menu that filters the map markers and list items to locations matching the text input or selection. Filter function runs error-free.
