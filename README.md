@@ -36,14 +36,16 @@
 * Clone/Download repository to your computer.
 * in project directory run `npm install` and `npm start` to install and launch the application.
 
-### Steps to run the project  in build mode
+### Steps to run the project in build mode
 
 * Clone/Download repository to your computer.
-* Run `npm run build` to build production-ready code.
+* if needed install serve `npm install -g serve`
+* Run `npm run build` `serve -s build` to build and serve production-ready code.
+* Navigate to `http://localhost:5000`
 
 ### View project live:
 
-[Vilnius Old Town Museums](#)
+[Vilnius Old Town Museums](https://gretagr.github.io/reactMapApp/)
 
 ## Dependencies
 
@@ -55,4 +57,4 @@
 * [escape-string-regexp](https://www.npmjs.com/package/escape-string-regexp)
 * [Open Sans, Google fonts](https://fonts.google.com/specimen/Open+Sans)
 * Locations Details: [Foursquare](https://foursquare.com/)
-* [Image Sources](#)
+* [Image Sources attributions](https://github.com/gretagr/reactMapApp/blob/master/image-sources.md)
