@@ -4,9 +4,6 @@ import MyMap from './components/MyMap'
 import NavBar from './components/NavBar'
 import escapeRegExp from 'escape-string-regexp'
 
-// getting addiotional date for infoWindows
-const details = require('./data/additionalData.json')
-
 export default class App extends Component {
   state = {
     allMarkers: [],
@@ -29,8 +26,10 @@ export default class App extends Component {
   }
 
 /* GETTING LOCATIONS form foursquare API ====================================================================================
-/* for sake of better quality of images and other info detail I desided to fetch locations only from my created list in foursquere,
-/* And according to that list hardcode other data in aditionalData.json
+/* for better quality data (as not all info is present in foursquare or some of the info is in my native language there)
+/* I desided to fetch only locations, address and name from foursquere API
+/* And according to list of locations (list is created by me in foursquare, so it will not change)
+/* to hardcode other data ( description, price, image and email ) in aditionalData.json
 /* ======================================================================================================================== */
 
   getLocations () {
@@ -50,10 +49,12 @@ export default class App extends Component {
         address: item.venue.location.formattedAddress
       }
     ))).then(markers => {
+      // getting additional data for infoWindows
+      const details = require('./data/additionalData.json')
       // filter additional data and add to markers based on id
       details.filter(detail => {markers.map(marker => {
 
-        if(marker.id === detail.id) {
+        if (marker.id === detail.id) {
           marker.image = detail.image
           marker.shortDesc = detail.shortDesc
           marker.link = detail.link
@@ -70,83 +71,92 @@ export default class App extends Component {
 
 }
 
-// idea how to trim name from this thread: https://stackoverflow.com/questions/5631384/remove-everything-after-a-certain-character
-trimName = (name) => {
-let trigger = name.indexOf('(')
-let result = name.substring(0, trigger !== -1 ? trigger : name.length)
-return result
-}
+  // idea how to trim name from this thread: https://stackoverflow.com/questions/5631384/remove-everything-after-a-certain-character
 
-// filter locations by name - function
-onSearch = (query) => {
-let markers
-const match = new RegExp(escapeRegExp(query), 'i')
-  if (query) {
-    markers = this.state.allMarkers.filter(marker => match.test(marker.name))
+  trimName = (name) => {
+  let trigger = name.indexOf('(')
+  let result = name.substring(0, trigger !== -1 ? trigger : name.length)
+  return result
   }
-  else {
-    markers = this.state.allMarkers
+
+  // filter locations by name - function
+
+  onSearch = (query) => {
+  let markers
+  const match = new RegExp(escapeRegExp(query), 'i')
+    if (query) {
+      markers = this.state.allMarkers.filter(marker => match.test(marker.name))
+    }
+    else {
+      markers = this.state.allMarkers
+    }
+    this.setState({ markers, query})
   }
-  this.setState({ markers, query})
-}
 
-// open-close infoWindows, set marker animation
+  // open-close infoWindows
 
-onToggle = (openItemId, lat, lng) => {
-  if (!this.state.isOpen) { //checks if no other windows are open
-    this.setState ({
-      openItemId: openItemId,
-      isOpen: true,
-      center: {lat, lng},
-      zoom: 16
-    })
-// checks if another infoWindow isn't open before opening new one, and if it is open - resets value of open item id to current window
-  } else if (this.state.isOpen && this.state.openItemId !== openItemId){
+  onToggle = (openItemId, lat, lng) => {
+
+    //check that there is no open infowindows, if so - open corresponding infowindow
+    if (!this.state.isOpen) {
       this.setState ({
         openItemId: openItemId,
+        isOpen: true,
         center: {lat, lng},
         zoom: 16
       })
-// close infoWindow
-  } else {
-    this.setState ({
+    }
+
+  // if there is open infowindow (clicked marker), check if its same marker. if not - change to newly clicked
+   else if (this.state.isOpen && this.state.openItemId !== openItemId){
+        this.setState ({
+          openItemId: openItemId,
+          center: {lat, lng},
+          zoom: 16
+        })
+
+  // close infoWindow
+    } else {
+      this.setState ({
+        openItemId: '',
+        isOpen: false,
+        center: { lat: 54.6851319, lng: 25.2843913 },
+        zoom: 14
+      })
+    }
+  }
+
+  // sets map behavior on click - change center to default, if there is open infowindow - close it.
+
+  onMapClick = () => {
+    this.setState({
       openItemId: '',
       isOpen: false,
       center: { lat: 54.6851319, lng: 25.2843913 },
       zoom: 14
     })
   }
-}
 
-// sets map behavior on on click - change center to default, if open - close infoWindow.
-onMapClick = () => {
-  this.setState({
-    openItemId: '',
-    isOpen: false,
-    center: { lat: 54.6851319, lng: 25.2843913 },
-  })
-}
+  // function for error handling
 
-// function for error handling
-
-handleError = (error) => {
-  const container = document.getElementById('root')
-  const box = document.createElement('div')
-  box.classList = 'alert'
-
-  if (error === 'noData') {
-    box.innerHTML = `<h2>Oops,</h2><p>looks like there was error getting locations data. Please try again later</p><button id='alert'>CLOSE</button>`
-  }
-  else if (error === 'noInternet') {
-    box.innerHTML = `<h2>Oops,</h2><p>looks like there was error with connection. Please try again later</p><button id='alert'>CLOSE</button>`
-  }
-
-  container.appendChild(box)
-  document.getElementById('alert').addEventListener('click', function () {
+  handleError = (error) => {
+    const container = document.getElementById('root')
+    const box = document.createElement('div')
+    box.classList = 'alert'
+    box.tabIndex = 0
+    // connection errors
+    if (error === 'noInternet') {
+      box.innerHTML = `<h2>Oops</h2><p>looks like there was error with connection. Please try again later</p><button id='alert'>CLOSE</button>`
+    }
+    // data API errors
+    else if (error === 'noData') {
+      box.innerHTML = `<h2>Oops</h2><p>looks like there was error getting locations data. Please try again later</p><button id='alert'>CLOSE</button>`
+    }
+    container.appendChild(box)
+    document.getElementById('alert').addEventListener('click', function () {
     container.removeChild(box)
-  })
+    })
 }
-
 
   render() {
     const {
@@ -158,44 +168,47 @@ handleError = (error) => {
       zoom,
       center,
       mapStyles,
-      query,
-      openNav
-    } = this.state
-    return (
-      <React.Fragment>
-        <NavBar
-          markers={markers}
-          onToggle={this.onToggle}
-          onSearch={this.onSearch}
-          query={query}
-         />
-        { (navigator.onLine) && (
+      query } = this.state
+
+      return (
+        <React.Fragment>
+
+          {/* sidebar navigation component */}
+          <NavBar
+            markers={markers}
+            onToggle={this.onToggle}
+            onSearch={this.onSearch}
+            query={query}
+          />
+          {(navigator.onLine) && (
           <section
             aria-label='Vilnius map'
             role='application'
-            className='map-container'>
-            {/* Map configuration component */}
+            className='map-container'
+          >
+
+          {/* Map configuration component */}
+
             <MyMap
-                handleError={this.handleError}
-                onMapLoad={this.handleMapLoad}
-                markers={markers}
-                onToggle={this.onToggle}
-                isOpen={isOpen}
-                openitem={openItem}
-                isMarkerShown={isMarkerShown}
-                openItemId={openItemId}
-                zoom={zoom}
-                center={center}
-                mapStyles={mapStyles}
-                onMapClick={this.onMapClick}
-              />
+              onMapLoad={this.handleMapLoad}
+              markers={markers}
+              onToggle={this.onToggle}
+              isOpen={isOpen}
+              openitem={openItem}
+              isMarkerShown={isMarkerShown}
+              openItemId={openItemId}
+              zoom={zoom}
+              center={center}
+              mapStyles={mapStyles}
+              onMapClick={this.onMapClick}
+            />
+
           </section>
-      )}
-      {
-        (!navigator.onLine) && (
-        this.handleError('noInternet')
-      )}
-    </React.Fragment>
-    )
+        )}
+        { (!navigator.onLine) && (
+              this.handleError('noInternet')
+        )}
+        </React.Fragment>
+      )
+    }
   }
-}

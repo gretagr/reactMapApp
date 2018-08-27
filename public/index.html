@@ -37,18 +37,19 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+    <!-- handle error funtion-->
     <script>
       function gm_authFailure() {
         const container = document.getElementById('root');
         const box = document.createElement('div');
         box.classList = 'alert';
-        box.innerHTML = `<h2>Oops,</h2><p>Map Authentication Error. Please try again later</p><button id='alert'>CLOSE</button>`;
-
+        box.innerHTML = `<h2>Oops</h2><p>looks like there was error with map loading. Please try again later</p>`;
+        container.innerHTML = '';
         container.appendChild(box);
-        document.getElementById('alert').addEventListener('click', function () {
-          container.removeChild(box);
-        });
       }
     </script>
+
+    
   </body>
 </html>
